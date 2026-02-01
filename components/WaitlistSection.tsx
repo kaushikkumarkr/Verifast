@@ -6,13 +6,31 @@ const WaitlistSection: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    setTimeout(() => {
+
+    const formData = new FormData(e.currentTarget as HTMLFormElement);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/krkaushikkumar@zoho.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      alert("Something went wrong. Please try again.");
+    } finally {
       setIsLoading(false);
-      setIsSubmitted(true);
-    }, 1200);
+    }
   };
 
   return (
@@ -20,7 +38,7 @@ const WaitlistSection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-6">
         <div className="relative bg-white border border-slate-200 rounded-[2.5rem] p-12 md:p-20 shadow-2xl overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-50 blur-[100px] rounded-full -z-0"></div>
-          
+
           {!isSubmitted ? (
             <div className="relative z-10 text-center">
               <div className="inline-block px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-[10px] font-black text-emerald-600 uppercase tracking-[0.2em] mb-6">
@@ -34,16 +52,16 @@ const WaitlistSection: React.FC = () => {
               </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3 max-w-lg mx-auto">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   required
-                  placeholder="name@company.com" 
+                  placeholder="name@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="flex-1 bg-white border border-slate-200 rounded-xl px-6 py-4 text-slate-900 text-base focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 transition-all placeholder:text-slate-400"
                 />
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={isLoading}
                   className="px-8 py-4 bg-emerald-600 text-white rounded-xl font-bold text-base hover:bg-emerald-700 transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg shadow-emerald-100"
                 >
@@ -54,7 +72,7 @@ const WaitlistSection: React.FC = () => {
                   )}
                 </button>
               </form>
-              
+
               <p className="mt-8 text-[11px] text-slate-400 font-bold uppercase tracking-widest">
                 Trusted by 40+ engineering teams in waitlist.
               </p>
@@ -70,7 +88,7 @@ const WaitlistSection: React.FC = () => {
               <p className="text-lg text-slate-600 mb-8 max-w-md mx-auto leading-relaxed">
                 Thank you. We will reach out to <b>{email}</b> shortly with your technical onboarding package.
               </p>
-              <button 
+              <button
                 onClick={() => setIsSubmitted(false)}
                 className="text-emerald-600 text-sm font-bold hover:underline"
               >

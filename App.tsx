@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProblemSection from './components/ProblemSection';
 import HowItWorks from './components/HowItWorks';
+import InteractiveDemo from './components/InteractiveDemo';
 import Features from './components/Features';
+import Testimonials from './components/Testimonials';
 import WaitlistSection from './components/WaitlistSection';
 import Footer from './components/Footer';
 
@@ -26,7 +28,9 @@ const App: React.FC = () => {
         <Hero />
         <ProblemSection />
         <HowItWorks />
+        <InteractiveDemo />
         <Features />
+        <Testimonials />
         <WaitlistSection />
       </main>
       <Footer />

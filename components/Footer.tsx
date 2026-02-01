@@ -15,13 +15,13 @@ const Footer: React.FC = () => {
               Architecting the future of B2B lead verification through stateless handshake protocols. Engineered for the privacy-first enterprise.
             </p>
           </div>
-          
+
           <div>
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-widest mb-6">Architecture</h4>
             <ul className="space-y-4 text-slate-500 text-xs font-medium uppercase tracking-wider">
               <li><a href="#problem" className="hover:text-emerald-600 transition-colors">The Problem</a></li>
-              <li><a href="#protocol" className="hover:text-emerald-600 transition-colors">The Protocol</a></li>
-              <li><a href="#capabilities" className="hover:text-emerald-600 transition-colors">Capabilities</a></li>
+              <li><a href="#demo" className="hover:text-emerald-600 transition-colors">Live Demo</a></li>
+              <li><a href="#testimonials" className="hover:text-emerald-600 transition-colors">Testimonials</a></li>
             </ul>
           </div>
 
@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
             <h4 className="text-slate-900 text-xs font-bold uppercase tracking-widest mb-6">Company</h4>
             <ul className="space-y-4 text-slate-500 text-xs font-medium uppercase tracking-wider">
               <li><a href="#waitlist" className="hover:text-emerald-600 transition-colors">Waitlist</a></li>
-              <li><a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({top: 0, behavior: 'smooth'}); }} className="hover:text-emerald-600 transition-colors">Home</a></li>
+              <li><a href="#hero" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="hover:text-emerald-600 transition-colors">Home</a></li>
             </ul>
           </div>
 
