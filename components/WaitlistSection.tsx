@@ -52,8 +52,11 @@ const WaitlistSection: React.FC = () => {
               </p>
 
               <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3 max-w-lg mx-auto">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Waitlist Application!" />
                 <input
                   type="email"
+                  name="email"
                   required
                   placeholder="name@company.com"
                   value={email}
